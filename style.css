@@ -1,0 +1,163 @@
+/* ==========================================================
+   Czyste Niebo – style podstawowe (zajęcia 1/5)
+   Kolumny: Flexbox (.kolumny). Pełna responsywność i Grid dojdą później.
+   ========================================================== */
+
+/* 1. Ustawienia ogólne */
+* {
+    box-sizing: border-box;   /* szerokość elementu liczy się razem z paddingiem i ramką */
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    color: #1f2a24;
+    background-color: #eef3ef;
+}
+
+a {
+    color: #1d6b43;
+}
+
+/* 2. Kontener .content – wyśrodkowany blok o stałej maksymalnej szerokości,
+      używany w nagłówku i stopce */
+.content {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* 3. Nagłówek */
+header {
+    background-color: #2f4a3b;
+    color: #ffffff;
+    padding-top: 20px;
+}
+
+header .logo {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+header p {
+    margin: 4px 0 16px;
+    color: #cfe3d6;
+}
+
+/* 4. Menu: lista <ul> zamieniona na poziomy pasek */
+nav {
+    background-color: #234032;
+}
+
+nav ul {
+    list-style: none;          /* usuwamy kropki */
+    margin: 0 auto;
+    padding: 0 20px;
+    max-width: 960px;
+}
+
+nav li {
+    display: inline-block;     /* elementy listy obok siebie */
+}
+
+nav a {
+    display: block;
+    padding: 12px 18px;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+nav a:hover,
+nav a.aktywna {
+    background-color: #1d6b43;
+}
+
+/* 5. Treść główna */
+main {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.banner {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+section {
+    background-color: #ffffff;
+    border-left: 5px solid #4f7a5a;
+    border-radius: 6px;
+    padding: 4px 24px 16px;
+    margin-bottom: 20px;
+}
+
+/* Kolumny: sekcje obok siebie (Flexbox) */
+.kolumny {
+    display: flex;            /* sekcje wewnątrz układają się w jednym rzędzie */
+    gap: 20px;                /* odstęp między kolumnami */
+    margin-bottom: 20px;
+}
+
+.kolumny section {
+    flex: 1;                  /* każda kolumna ma tę samą szerokość i zwęża się razem z oknem */
+    margin-bottom: 0;         /* odstęp robi gap, nie margines */
+}
+
+
+.wiecej {
+    display: block;
+    text-align: center;
+}
+
+.karta {
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+h1 {
+    color: #234032;
+}
+
+h2 {
+    color: #234032;
+}
+
+/* 6. Stopka */
+footer {
+    background-color: #2f4a3b;
+    color: #ffffff;
+    margin-top: 20px;
+    padding-top: 16px;
+}
+
+footer ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+footer a {
+    color: #cfe3d6;
+}
+
+.copyright {
+    background-color: #234032;
+    text-align: center;
+    font-size: 0.85rem;
+    padding: 10px 0;
+    margin-top: 12px;
+}
+
+.copyright p {
+    margin: 0;
+}
