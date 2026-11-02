@@ -1,33 +1,26 @@
 <!DOCTYPE html>
-<!-- KROK 1: szkielet dokumentu (w VS Code: wpisz ! i naciśnij Tab).
-     Zmieniamy lang="en" na lang="pl", bo treść strony jest po polsku. -->
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- KROK 2: metadane (autor, opis, słowa kluczowe) -->
     <meta name="author" content="Imię Nazwisko">
     <meta name="description" content="Mini-serwis o smogu w Polsce: skąd się bierze, jak wpływa na zdrowie i co możemy zrobić, by go ograniczać.">
     <meta name="keywords" content="smog, jakość powietrza, PM2.5, PM10, niska emisja, ochrona środowiska, Polska">
 
-    <!-- KROK 3: podpięcie arkusza stylów i właściwy tytuł -->
     <link rel="stylesheet" href="style.css">
     <title>Czyste Niebo – smog w Polsce</title>
 </head>
 <body>
 
-    <!-- KROK 4: nagłówek strony -->
     <header>
-        <!-- div.content: wewnętrzny kontener, który później wyśrodkujemy w CSS -->
+        <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-label="Pokaż lub ukryj menu">
         <div class="content">
-            <!-- logo, które jest jednocześnie linkiem do strony głównej -->
             <a href="index.html" class="logo">Czyste Niebo</a>
-            <!-- slogan opisujący zawartość witryny -->
             <p>Skąd się bierze smog i jak go ograniczać</p>
+            <label for="menu-toggle" class="burger"><span></span></label>
         </div>
 
-        <!-- menu nawigacyjne -->
         <nav>
             <ul>
                 <li><a href="index.html" aria-current="page" class="aktywna">Start</a></li>
@@ -38,9 +31,7 @@
         </nav>
     </header>
 
-    <!-- KROK 5: treść główna -->
     <main>
-        <!-- baner: obrazek bezpośrednio pod menu (na razie grafika SVG, zdjęcia dojdą na kolejnych zajęciach) -->
         <img class="banner" src="images/baner3.jpg" alt="Grafika: sylwetka miasta pod zadymionym niebem">
 
         <div class="kolumny">
@@ -69,10 +60,6 @@
             </section>
         </div>
     </main>
-
-
-
-
 
     <footer>
         <div class="content">
