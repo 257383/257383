@@ -1,11 +1,6 @@
-/* ==========================================================
-   Czyste Niebo – style podstawowe (zajęcia 1/5)
-   Kolumny: Flexbox (.kolumny). Pełna responsywność i Grid dojdą później.
-   ========================================================== */
 
-/* 1. Ustawienia ogólne */
 * {
-    box-sizing: border-box;   /* szerokość elementu liczy się razem z paddingiem i ramką */
+    box-sizing: border-box;
 }
 
 body {
@@ -14,25 +9,35 @@ body {
     line-height: 1.6;
     color: #1f2a24;
     background-color: #eef3ef;
+
+
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
 }
 
 a {
     color: #1d6b43;
 }
 
-/* 2. Kontener .content – wyśrodkowany blok o stałej maksymalnej szerokości,
-      używany w nagłówku i stopce */
+
 .content {
     max-width: 960px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
-/* 3. Nagłówek */
 header {
+    position: relative; 
+    z-index: 100;
     background-color: #2f4a3b;
     color: #ffffff;
     padding-top: 20px;
+}
+
+header .content {
+    position: relative; 
 }
 
 header .logo {
@@ -47,25 +52,120 @@ header p {
     color: #cfe3d6;
 }
 
-/* 4. Menu: lista <ul> zamieniona na poziomy pasek */
-nav {
+/* 4. Burger menu */
+
+
+.menu-toggle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.burger {
+    position: absolute;
+    top: 0;
+    right: 20px;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.burger:hover {
     background-color: #234032;
 }
 
+.burger span {
+    position: relative;
+}
+
+.burger span,
+.burger span::before,
+.burger span::after {
+    display: block;
+    width: 26px;
+    height: 3px;
+    border-radius: 2px;
+    background-color: #ffffff;
+    transition: transform 0.25s, top 0.25s, background-color 0.25s;
+}
+
+.burger span::before,
+.burger span::after {
+    content: "";
+    position: absolute;
+    left: 0;
+}
+
+.burger span::before {
+    top: -8px;
+}
+
+.burger span::after {
+    top: 8px;
+}
+
+.menu-toggle:checked + .content .burger span {
+    background-color: transparent;
+}
+
+.menu-toggle:checked + .content .burger span::before {
+    top: 0;
+    transform: rotate(45deg);
+}
+
+.menu-toggle:checked + .content .burger span::after {
+    top: 0;
+    transform: rotate(-45deg);
+}
+
+.menu-toggle:focus-visible + .content .burger {
+    outline: 2px solid #cfe3d6;
+    outline-offset: 2px;
+}
+
+nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #234032;
+}
+
+.menu-toggle:checked ~ nav {
+    box-shadow: 0 8px 14px rgba(0, 0, 0, 0.25);
+}
+
 nav ul {
+    display: none;             /* menu domyślnie zwinięte */
     list-style: none;          /* usuwamy kropki */
     margin: 0 auto;
     padding: 0 20px;
     max-width: 960px;
 }
 
+.menu-toggle:checked ~ nav ul {
+    display: block;            /* po zaznaczeniu checkboxa menu się rozwija */
+}
+
 nav li {
-    display: inline-block;     /* elementy listy obok siebie */
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+nav li:first-child {
+    border-top: none;
 }
 
 nav a {
     display: block;
-    padding: 12px 18px;
+    padding: 14px 18px;
     color: #ffffff;
     text-decoration: none;
 }
@@ -75,8 +175,9 @@ nav a.aktywna {
     background-color: #1d6b43;
 }
 
-/* 5. Treść główna */
 main {
+    flex: 1 0 auto;            /* rozciąga się na całe wolne miejsce, dzięki temu stopka jest na dole */
+    width: 100%;
     max-width: 960px;
     margin: 0 auto;
     padding: 20px;
@@ -98,7 +199,6 @@ section {
     margin-bottom: 20px;
 }
 
-/* Kolumny: sekcje obok siebie (Flexbox) */
 .kolumny {
     display: flex;            /* sekcje wewnątrz układają się w jednym rzędzie */
     gap: 20px;                /* odstęp między kolumnami */
@@ -132,8 +232,9 @@ h2 {
     color: #234032;
 }
 
-/* 6. Stopka */
+
 footer {
+    flex-shrink: 0;           /* stopka nie jest ściskana, zawsze przylega do dołu strony */
     background-color: #2f4a3b;
     color: #ffffff;
     margin-top: 20px;
