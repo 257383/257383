@@ -1,4 +1,3 @@
-
 * {
     box-sizing: border-box;
 }
@@ -9,8 +8,6 @@ body {
     line-height: 1.6;
     color: #1f2a24;
     background-color: #eef3ef;
-
-
     min-height: 100vh;
     min-height: 100dvh;
     display: flex;
@@ -21,7 +18,6 @@ a {
     color: #1d6b43;
 }
 
-
 .content {
     max-width: 960px;
     margin: 0 auto;
@@ -29,7 +25,7 @@ a {
 }
 
 header {
-    position: relative; 
+    position: relative;
     z-index: 100;
     background-color: #2f4a3b;
     color: #ffffff;
@@ -37,7 +33,7 @@ header {
 }
 
 header .content {
-    position: relative; 
+    position: relative;
 }
 
 header .logo {
@@ -51,9 +47,6 @@ header p {
     margin: 4px 0 16px;
     color: #cfe3d6;
 }
-
-/* 4. Burger menu */
-
 
 .menu-toggle {
     position: absolute;
@@ -144,15 +137,15 @@ nav {
 }
 
 nav ul {
-    display: none;             /* menu domyślnie zwinięte */
-    list-style: none;          /* usuwamy kropki */
+    display: none;
+    list-style: none;
     margin: 0 auto;
     padding: 0 20px;
     max-width: 960px;
 }
 
 .menu-toggle:checked ~ nav ul {
-    display: block;            /* po zaznaczeniu checkboxa menu się rozwija */
+    display: block;
 }
 
 nav li {
@@ -176,7 +169,7 @@ nav a.aktywna {
 }
 
 main {
-    flex: 1 0 auto;            /* rozciąga się na całe wolne miejsce, dzięki temu stopka jest na dole */
+    flex: 1 0 auto;
     width: 100%;
     max-width: 960px;
     margin: 0 auto;
@@ -200,16 +193,15 @@ section {
 }
 
 .kolumny {
-    display: flex;            /* sekcje wewnątrz układają się w jednym rzędzie */
-    gap: 20px;                /* odstęp między kolumnami */
+    display: flex;
+    gap: 20px;
     margin-bottom: 20px;
 }
 
 .kolumny section {
-    flex: 1;                  /* każda kolumna ma tę samą szerokość i zwęża się razem z oknem */
-    margin-bottom: 0;         /* odstęp robi gap, nie margines */
+    flex: 1;
+    margin-bottom: 0;
 }
-
 
 .wiecej {
     display: block;
@@ -232,9 +224,8 @@ h2 {
     color: #234032;
 }
 
-
 footer {
-    flex-shrink: 0;           /* stopka nie jest ściskana, zawsze przylega do dołu strony */
+    flex-shrink: 0;
     background-color: #2f4a3b;
     color: #ffffff;
     margin-top: 20px;
